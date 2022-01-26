@@ -26,13 +26,10 @@ def call_cmd(cmd: str, *args) -> bytes:
 def call_cmd_and_print_content(cmd: str, *args):
     print(call_cmd(cmd, *args))
 
-def call_cmd_and_print_cmd(cmd: str, *args):
-    print(call_cmd(cmd, *args))
-    
-#def call_cmd_and_print_cmd(cmd: str, *args) -> bytes:
-#    full_cmd = ' '.join(cmd.split() + list(args))
-#    print(f'{Colors.OKCYAN}### cmd: [{Colors.MAGENTA}{full_cmd}{Colors.OKCYAN}] ### cwd: [{Colors.MAGENTA}{os.getcwd()}{Colors.OKCYAN}] ###{Colors.ENDC}')
-#    return call_cmd(cmd, *args).decode('utf-8')
+def call_cmd_and_print_cmd(cmd: str, *args) -> bytes:
+    full_cmd = ' '.join(cmd.split() + list(args))
+    print(f'{Colors.OKCYAN}### cmd: [{Colors.MAGENTA}{full_cmd}{Colors.OKCYAN}] ### cwd: [{Colors.MAGENTA}{os.getcwd()}{Colors.OKCYAN}] ###{Colors.ENDC}')
+    return call_cmd(cmd, *args).decode('utf-8')
 
 
 def do_with_fallback(cmd: str, *fallback) -> bytes:
