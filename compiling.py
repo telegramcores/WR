@@ -70,8 +70,8 @@ def configuring():
     call_cmd_and_print_cmd(USE_emerge_pkg('sys-apps/mlocate'))
     call_cmd_and_print_cmd(USE_emerge_pkg('sys-fs/e2fsprogs'))
     call_cmd_and_print_cmd(USE_emerge_pkg('net-misc/dhcpcd'))
-    call_cmd_and_print_cmd(USE_emerge_pkg('net-wireless/iw'))
-    call_cmd_and_print_cmd(USE_emerge_pkg('net-wireless/wpa_supplicant'))
+    #call_cmd_and_print_cmd(USE_emerge_pkg('net-wireless/iw'))
+    #call_cmd_and_print_cmd(USE_emerge_pkg('net-wireless/wpa_supplicant'))
 
     call_cmd_and_print_cmd('''echo 'GRUB_PLATFORMS="emu efi-32 efi-64 pc"' >> /etc/portage/make.conf''')
     call_cmd_and_print_cmd(USE_emerge_pkg('sys-boot/grub:2'))
