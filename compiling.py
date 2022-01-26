@@ -48,11 +48,11 @@ def compile():
     call_cmd_and_print_cmd(USE_emerge_pkg('sys-kernel/linux-firmware'))
 
     configuring()
-    install_env()
+    #install_env()
 
 
 def configuring():
-    call_cmd_and_print_cmd('echo hostname="gentoo" > /etc/conf.d/hostname')
+    call_cmd_and_print_cmd('echo hostname="gentoo_server" > /etc/conf.d/hostname')
 
     call_cmd_and_print_cmd(r'''blkid | grep 'swap' |                 sed 's@.*UUID="\([^"]*\)".*@UUID=\1 \t none \t swap \t sw \t 0 \t 0@'               >> /etc/fstab''')
     call_cmd_and_print_cmd(r'''blkid | grep 'ext4' | grep 'rootfs' | sed 's@.*UUID="\([^"]*\)".*@UUID=\1 \t / \t ext4 \t noatime \t 0 \t 1@'             >> /etc/fstab''')
