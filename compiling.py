@@ -19,14 +19,14 @@ def compile():
 
 ###   call_cmd_and_print_cmd(USE_emerge_pkg('sys-devel/gcc', 'pgo'))
 
-    call_cmd_and_print_cmd('emerge sys-kernel/gentoo-sources'))
-    call_cmd_and_print_cmd('emerge sys-kernel/genkernel'))
+    call_cmd_and_print_cmd('emerge sys-kernel/gentoo-sources')
+    call_cmd_and_print_cmd('emerge sys-kernel/genkernel')
 
     call_cmd_and_print_cmd('ln -s /usr/src/linux* /usr/src/linux')
 
     call_cmd_and_print_cmd('genkernel --lvm --mountboot --busybox --install all')
 
-    call_cmd_and_print_cmd('emerge sys-kernel/linux-firmware'))
+    call_cmd_and_print_cmd('emerge sys-kernel/linux-firmware')
 
     configuring()
     #install_env()
@@ -42,20 +42,20 @@ def configuring():
     call_cmd_and_print_cmd('pushd /etc/init.d && ln -s net.lo net.eth0 && rc-update add net.eth0 default && popd')
 
 
-    call_cmd_and_print_cmd('emerge app-admin/sysklogd'))
+    call_cmd_and_print_cmd('emerge app-admin/sysklogd')
     call_cmd_and_print_cmd('rc-update add sysklogd default')
 
-    call_cmd_and_print_cmd('emerge sys-process/cronie'))
+    call_cmd_and_print_cmd('emerge sys-process/cronie')
     call_cmd_and_print_cmd('rc-update add cronie default')
 
-    call_cmd_and_print_cmd('emerge sys-apps/mlocate'))
-    call_cmd_and_print_cmd('emerge sys-fs/e2fsprogs'))
-    call_cmd_and_print_cmd('emerge net-misc/dhcpcd'))
+    call_cmd_and_print_cmd('emerge sys-apps/mlocate')
+    call_cmd_and_print_cmd('emerge sys-fs/e2fsprogs')
+    call_cmd_and_print_cmd('emerge net-misc/dhcpcd')
     #call_cmd_and_print_cmd(USE_emerge_pkg('net-wireless/iw'))
     #call_cmd_and_print_cmd(USE_emerge_pkg('net-wireless/wpa_supplicant'))
 
     call_cmd_and_print_cmd('''echo 'GRUB_PLATFORMS="emu efi-32 efi-64 pc"' >> /etc/portage/make.conf''')
-    call_cmd_and_print_cmd('emerge sys-boot/grub:2'))
+    call_cmd_and_print_cmd('emerge sys-boot/grub:2')
 
 
     call_cmd_and_print_cmd('''echo 'GRUB_CMDLINE_LINUX="dolvm"' >> /etc/default/grub''')
@@ -63,7 +63,7 @@ def configuring():
     call_cmd_and_print_cmd('''grub-install --target=$(lscpu | head -n1 | sed 's/^[^:]*:[[:space:]]*//')-efi --efi-directory=/boot --removable''')
     call_cmd_and_print_cmd('''grub-mkconfig -o /boot/grub/grub.cfg''')
 
-    call_cmd_and_print_cmd('emerge sys-boot/os-prober'))
+    call_cmd_and_print_cmd('emerge sys-boot/os-prober')
 
 
 def install_env():
