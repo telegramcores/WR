@@ -13,8 +13,8 @@ def compile():
     call_cmd_and_print_cmd(r'''echo "EMERGE_DEFAULT_OPTS=\"--jobs=$(( $(nproc) / 2 ))\"" >> /etc/portage/make.conf''')
 
     call_cmd_and_print_cmd('perl-cleaner --all')
-    call_cmd_and_print_cmd('emerge-webrsync')
-    call_cmd_and_print_cmd('emerge --ask --verbose --update --deep --newuse @world')
+### call_cmd_and_print_cmd('emerge-webrsync')
+###    call_cmd_and_print_cmd('emerge --ask --verbose --update --deep --newuse @world')
    
 
 ###   call_cmd_and_print_cmd(USE_emerge_pkg('sys-devel/gcc', 'pgo'))
