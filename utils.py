@@ -15,11 +15,12 @@ class Colors:
     UNDERLINE = '\033[4m'
 
 def call_cmd(cmd: str, *args) -> bytes:
-    with open('/dev/tty3', 'ab') as out_log:
-        with open('/dev/tty2', 'ab') as err_log:
+#    with open('/dev/tty3', 'ab') as out_log:
+#        with open('/dev/tty2', 'ab') as err_log:
             combined_args = ' '.join(cmd.split() + list(args))
-            out = sp.check_output([combined_args], shell=True, stderr=err_log)
-            out_log.write(out)
+#            out = sp.check_output([combined_args], shell=True, stderr=err_log)
+            out = sp.check_output([combined_args], shell=True, stderr=None)
+#            out_log.write(out)
             return out
 
 
