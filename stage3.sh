@@ -49,7 +49,7 @@ pushd /mnt/gentoo
 
 
     # selecting mirror interactively
-    mirrorselect -4 -D
+    # mirrorselect -4 -D
 
     mkdir --parents etc/portage/repos.conf
     cp usr/share/portage/config/repos.conf etc/portage/repos.conf/gentoo.conf
