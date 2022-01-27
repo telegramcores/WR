@@ -11,25 +11,13 @@ def compile():
     call_cmd_and_print_cmd('''echo '{}' >> /etc/portage/make.conf'''.format(portage_features))
     call_cmd_and_print_cmd('''echo 'USE="abi_x86_64 lto pgo X openmp"' >> /etc/portage/make.conf''')
     call_cmd_and_print_cmd(r'''echo "EMERGE_DEFAULT_OPTS=\"--jobs=$(( $(nproc) / 2 ))\"" >> /etc/portage/make.conf''')
-    call_cmd_and_print_cmd('''echo 'INPUT_DEVICES="synaptics libinput"' >> /etc/portage/make.conf''')
-
-###    call_cmd_and_print_cmd('''echo '>sys-devel/gcc-10.3.0-r2' >> /etc/portage/package.mask''')
 
     call_cmd_and_print_cmd('perl-cleaner --all')
-###    call_cmd_and_print_cmd('USE="apng" emerge media-libs/libpng')
-###    call_cmd_and_print_cmd('USE="-harfbuzz -abi_x86_32 -abi_x86_x32" emerge -O1 media-libs/freetype')
-
-    do_with_fallback('emerge -uDNv --with-bdeps=y --backtrack=100 --autounmask-write @world')
-    call_cmd_and_print_cmd('echo -5 | etc-update')
-    call_cmd_and_print_cmd('emerge -uDNv --with-bdeps=y --backtrack=100 @world')
+    call_cmd_and_print_cmd('emerge-webrsync')
+    call_cmd_and_print_cmd('emerge --ask --verbose --update --deep --newuse @world')
    
-###    call_cmd_and_print_cmd('USE="-gpm" emerge -ND sys-libs/ncurses')
 
-
-###    call_cmd_and_print_cmd(USE_emerge_pkg('app-editors/vim', 'X', 'python', 'vim-pager', 'perl', 'terminal'))
-
-
-    call_cmd_and_print_cmd(USE_emerge_pkg('sys-devel/gcc', 'pgo'))
+###   call_cmd_and_print_cmd(USE_emerge_pkg('sys-devel/gcc', 'pgo'))
 
     call_cmd_and_print_cmd(USE_emerge_pkg('sys-kernel/gentoo-sources'))
     call_cmd_and_print_cmd(USE_emerge_pkg('sys-kernel/genkernel'))
