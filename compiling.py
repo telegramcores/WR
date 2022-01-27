@@ -48,7 +48,7 @@ def compile():
     call_cmd_and_print_cmd(USE_emerge_pkg('sys-kernel/linux-firmware'))
 
     configuring()
-    install_env()
+#    install_env()
 
 
 def configuring():
